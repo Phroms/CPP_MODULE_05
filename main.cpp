@@ -1,4 +1,4 @@
-# include "prueba.hpp"
+# include "Bureaucrat.hpp"
 # include <iostream>
 
 int main()

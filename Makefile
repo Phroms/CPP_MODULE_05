@@ -6,7 +6,7 @@
 #    By: agrimald <agrimald@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 11:27:47 by agrimald          #+#    #+#              #
-#    Updated: 2024/12/18 12:00:22 by agrimald         ###   ########.fr        #
+#    Updated: 2024/12/18 12:37:01 by agrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ CYAN = \033[96m
 RED = \033[91m
 END_COLOR = \033[0m
 
-SRC = main.cpp
+SRC = main.cpp Bureaucrat.cpp
 
-INC = prueba.hpp
+INC = Bureaucrat.hpp
 
 OBJECTS = $(SRC:.cpp=.o)
 
