@@ -4,9 +4,12 @@
 # include <cctype>
 # include <stdexcept>
 # include <exception>// es para el throw
+# include <cstdlib>
 
 # define RED "\033[91m"
 # define YELLOW "\033[93m"
+# define GREEN "\033[92m"
+# define BLUE "\033[94m"
 # define NONE "\033[0m"
 
 class Bureaucrat

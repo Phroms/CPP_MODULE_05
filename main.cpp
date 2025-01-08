@@ -1,8 +1,9 @@
 # include "Bureaucrat.hpp"
-# include <cstdlib>
+#include <filesystem>
 
 int main()
 {
+	bool allCorrect = true;
 	try
 	{
 		Bureaucrat b1("Alice", 50);
@@ -22,7 +23,8 @@ int main()
 		}
 		catch (std::exception &e)
 		{
-			std::cerr << RED"Error with "NONE << b1.getName() << ": " << e.what() << std::endl;
+			std::cerr << RED"Error with "BLUE << b1.getName() << ": " << e.what() << std::endl;
+			allCorrect = false;
 		}
 
 		try
@@ -32,7 +34,8 @@ int main()
 		}
 		catch (std::exception &e)
 		{
-			std::cerr << RED"Error with "NONE << b2.getName() << ": " << e.what() << std::endl;
+			std::cerr << RED"Error with "BLUE << b2.getName() << ": " << e.what() << std::endl;
+			allCorrect = false;
 		}
 
 		try
@@ -42,7 +45,8 @@ int main()
 		}
 		catch (std::exception &e)
 		{
-			std::cerr << RED"Error with "NONE << b3.getName() << ": " << e.what() << std::endl;
+			std::cerr << RED"Error with "BLUE << b3.getName() << ": " << e.what() << std::endl;
+			allCorrect = false;
 		}
 
 		try
@@ -52,12 +56,14 @@ int main()
 		}
 		catch (std::exception &e)
 		{
-			std::cerr << RED"Error with "NONE << b4.getName() << ": " << e.what() << std::endl;
+			std::cerr << RED"Error with "BLUE << b4.getName() << ": " << e.what() << std::endl;
+			allCorrect = false;
 		}
 	}
 	catch (std::exception &e)
 	{
 		std::cerr << RED"An Error ocurred: "NONE << e.what() << std::endl;
+		allCorrect = false;
 	}
 
 	try
@@ -68,6 +74,7 @@ int main()
 	catch (std::exception &e)
 	{
 		std::cerr << RED"Error creating b4: "NONE << e.what() << std::endl;
+		allCorrect = false;
 	}
 
 	try
@@ -78,6 +85,7 @@ int main()
 	catch (std::exception &e)
 	{
 		std::cerr << RED"Error creating b5: "NONE << e.what() << std::endl;
+		allCorrect = false;
 	}
 
 	try
@@ -88,6 +96,12 @@ int main()
 	catch (std::exception &e)
 	{
 		std::cerr << RED"Error creating b6: "NONE << e.what() << std::endl;
+		allCorrect = false;
+	}
+
+	if (allCorrect)
+	{
+		std::cout << GREEN"Everything is correct"NONE << std::endl;
 	}
 	return 0;
 }
