@@ -58,17 +58,17 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 // Los metodos what se implementan para cada clase de excepcion. Estos metodos devuelven el error especifico
 char const *Bureaucrat::InvalidNameException::what() const throw()
 {
-	return RED "Invalid name";
+	return RED "Invalid name.";
 }
 
 char const *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return YELLOW "Grade too low";
+	return YELLOW "Grade is too low!";
 }
 
 char const *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return YELLOW "Grade too high";
+	return YELLOW "Grade is too high!";
 }
 
 std::string Bureaucrat::getName() const

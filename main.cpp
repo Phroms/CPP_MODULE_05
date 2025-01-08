@@ -1,5 +1,5 @@
 # include "Bureaucrat.hpp"
-#include <cstdlib>
+# include <cstdlib>
 
 int main()
 {
@@ -8,22 +8,56 @@ int main()
 		Bureaucrat b1("Alice", 50);
 		Bureaucrat b2("Bob", 1);
 		Bureaucrat b3("Charlie", 150);
+		Bureaucrat b4("Pedro", 150);
 
 		std::cout << b1 << std::endl;
 		std::cout << b2 << std::endl;
 		std::cout << b3 << std::endl;
+		std::cout << b4 << std::endl;
 
+		try
+		{
+			b1.incrementGrade();
+			std::cout << b1 << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << RED"Error with "NONE << b1.getName() << ": " << e.what() << std::endl;
+		}
 
-		b1.incrementGrade();
-		std::cout << b1 << std::endl;
-		b2.incrementGrade();
-		std::cout << b2 << std::endl; // Esto deberia lanzar una exception
-		b3.decrementGrade();
-		std::cout << b3 << std::endl;
+		try
+		{
+			b2.incrementGrade();
+			std::cout << b2 << std::endl; // Esto deberia lanzar una exception
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << RED"Error with "NONE << b2.getName() << ": " << e.what() << std::endl;
+		}
+
+		try
+		{
+			b3.decrementGrade();
+			std::cout << b3 << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << RED"Error with "NONE << b3.getName() << ": " << e.what() << std::endl;
+		}
+
+		try
+		{
+			b4.decrementGrade();
+			std::cout << b4 << std::endl; // Esto deberia lanzar una exception
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << RED"Error with "NONE << b4.getName() << ": " << e.what() << std::endl;
+		}
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED"An Error ocurred: "NONE << e.what() << std::endl;
 	}
 
 	try
@@ -33,7 +67,7 @@ int main()
 
 	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED"Error creating b4: "NONE << e.what() << std::endl;
 	}
 
 	try
@@ -43,7 +77,7 @@ int main()
 
 	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED"Error creating b5: "NONE << e.what() << std::endl;
 	}
 
 	try
@@ -53,7 +87,7 @@ int main()
 
 	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED"Error creating b6: "NONE << e.what() << std::endl;
 	}
 	return 0;
 }

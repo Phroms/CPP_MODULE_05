@@ -7,6 +7,7 @@
 
 # define RED "\033[91m"
 # define YELLOW "\033[93m"
+# define NONE "\033[0m"
 
 class Bureaucrat
 {
