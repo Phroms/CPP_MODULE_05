@@ -2,7 +2,11 @@
 # include <iostream>
 # include <string>
 # include <cctype>
-# include <stdexcept> // es para el throw
+# include <stdexcept>
+# include <exception>// es para el throw
+
+# define RED "\033[91m"
+# define YELLOW "\033[93m"
 
 class Bureaucrat
 {
@@ -19,8 +23,8 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		std::ostream &operator<<(std::ostream &out);
 
+		// Los metodos what es un metodo virtual que se hereda de la clase exception
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -39,3 +43,8 @@ class Bureaucrat
 			virtual const char *what() const throw();
 		};
 };
+
+// Declaracion del operador de insercion de flujo
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs);
+
+

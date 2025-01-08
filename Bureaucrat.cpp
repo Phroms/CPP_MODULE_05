@@ -22,9 +22,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 	if (!isValidName(name))
 			throw InvalidNameException();
 	if (grade < 1)
-			throw GradeTooLowException();
-	if (grade > 150)
 			throw GradeTooHighException();
+	if (grade > 150)
+			throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &rhs)
@@ -33,9 +33,9 @@ Bureaucrat::Bureaucrat(Bureaucrat const &rhs)
 	if (!isValidName(rhs._name))
 			throw InvalidNameException();
 	if (_grade < 1)
-			throw GradeTooLowException();
-	if (_grade > 150)
 			throw GradeTooHighException();
+	if (_grade > 150)
+			throw GradeTooLowException();
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
@@ -44,10 +44,10 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 	{
 		if (!isValidName(rhs._name))
 				throw InvalidNameException();
-		if (_grade < 1)
-				throw GradeTooLowException();
-		if (_grade > 150)
+		if (rhs._grade < 1)
 				throw GradeTooHighException();
+		if (rhs._grade > 150)
+				throw GradeTooLowException();
 		_grade = rhs._grade;
 	}
 	return *this;
@@ -58,17 +58,17 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 // Los metodos what se implementan para cada clase de excepcion. Estos metodos devuelven el error especifico
 char const *Bureaucrat::InvalidNameException::what() const throw()
 {
-	return "Invalid name";
+	return RED "Invalid name";
 }
 
 char const *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade too low";
+	return YELLOW "Grade too low";
 }
 
 char const *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade too high";
+	return YELLOW "Grade too high";
 }
 
 std::string Bureaucrat::getName() const
@@ -83,15 +83,15 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-	if (_grade < 1)
-			throw GradeTooLowException();
+	if (_grade <= 1)
+			throw GradeTooHighException();
 	_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade > 150)
-			throw GradeTooHighException();
+	if (_grade >= 150)
+			throw GradeTooLowException();
 	_grade++;
 }
 
