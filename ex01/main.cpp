@@ -1,14 +1,17 @@
+# include "Form.hpp"
 # include "Bureaucrat.hpp"
 
 int main()
 {
 	bool allCorrect = true;
+	Bureaucrat b1("Alice", 50);
+	Bureaucrat b2("Bob", 50);
+	Bureaucrat b3("Charlie", 49);
+	Bureaucrat b4("Pedro", 150);
+
 	try
 	{
-		Bureaucrat b1("Alice", 50);
-		Bureaucrat b2("Bob", 1);
-		Bureaucrat b3("Charlie", 150);
-		Bureaucrat b4("Pedro", 150);
+
 
 		std::cout << b1 << std::endl;
 		std::cout << b2 << std::endl;
@@ -18,7 +21,7 @@ int main()
 		try
 		{
 			b1.incrementGrade();
-			std::cout << b1 << std::endl;
+			std::cout << BLUE << b1 << NONE << std::endl;
 		}
 		catch (std::exception &e)
 		{
@@ -29,7 +32,7 @@ int main()
 		try
 		{
 			b2.incrementGrade();
-			std::cout << b2 << std::endl; // Esto deberia lanzar una exception
+			std::cout << BLUE << b2 << NONE << std::endl; // Esto deberia lanzar una exception
 		}
 		catch (std::exception &e)
 		{
@@ -40,7 +43,7 @@ int main()
 		try
 		{
 			b3.decrementGrade();
-			std::cout << b3 << std::endl;
+			std::cout << BLUE << b3 << NONE << std::endl;
 		}
 		catch (std::exception &e)
 		{
@@ -51,7 +54,7 @@ int main()
 		try
 		{
 			b4.decrementGrade();
-			std::cout << b4 << std::endl; // Esto deberia lanzar una exception
+			std::cout << BLUE << b4 << NONE <<std::endl; // Esto deberia lanzar una exception
 		}
 		catch (std::exception &e)
 		{
@@ -98,9 +101,29 @@ int main()
 		allCorrect = false;
 	}
 
+	// Pruebas para la clase Form
+	try
+	{
+		Form f1("Form1", 50, 100);
+		//std::cout << f1 << std::endl;
+
+		b1.signForm(f1); // Alice deberia poder firmar
+		std::cout << f1 << std::endl;
+
+		Form f2("Form2", 1, 1);
+		b3.signForm(f2); // Charlie no deberia poder firmar
+		std::cout << f2 << std::endl;
+	}
+	
+	catch (std::exception &e)
+	{
+		std::cerr << RED"An Error ocurred: :" NONE << e.what() << std::endl;
+		allCorrect = false;
+	}
 	if (allCorrect)
 	{
 		std::cout << GREEN"Everything is correct" NONE << std::endl;
 	}
 	return 0;
 }
+

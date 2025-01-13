@@ -17,7 +17,7 @@ Form &Form::operator=(Form const &obj)
 }
 
 Form::Form(Form const &obj)
-		: _name(obj._name), _signed(obj._signed), _gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExec)
+		: _name(obj._name), _signed(obj._signed), _gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExecute)
 {
 }
 

@@ -6,7 +6,7 @@
 #    By: agrimald <agrimald@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 11:07:07 by agrimald          #+#    #+#              #
-#    Updated: 2025/01/09 11:30:52 by agrimald         ###   ########.fr        #
+#    Updated: 2025/01/09 17:17:19 by agrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ RED = \033[91m
 YELLOW = \033[93m
 END_COLOR = \033[0m
 
-SRC = main.cpp Form.cpp
+SRC = main.cpp Form.cpp Bureaucrat.cpp
 
-INC = Form.hpp
+INC = Form.hpp Bureaucrat.hpp
 
 OBJECTS = $(SRC:.cpp=.o)
 

@@ -4,12 +4,6 @@
 # include <iostream>
 # include <string>
 
-# define RED \033[91m
-# define YELLOW \033[92m
-# define GREEN \033[93m
-# define CYAN \033[96m
-# define NONE \033[0m
-
 class Bureaucrat;
 
 class Form

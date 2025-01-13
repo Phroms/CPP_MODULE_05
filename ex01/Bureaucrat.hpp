@@ -1,4 +1,5 @@
 # pragma once
+# include "Form.hpp"
 # include <iostream>
 # include <string>
 # include <cctype>
@@ -11,7 +12,10 @@
 # define YELLOW "\033[93m"
 # define GREEN "\033[92m"
 # define BLUE "\033[94m"
+# define WHITE "\033[97m"
 # define NONE "\033[0m"
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +32,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form &form);
 
 		// Los metodos what es un metodo virtual que se hereda de la clase exception
 		class GradeTooHighException : public std::exception
