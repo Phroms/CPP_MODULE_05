@@ -1,4 +1,5 @@
 # include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm(std::string name, int gradeToSign, int gradeToExec)
 		: _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
@@ -24,9 +25,15 @@ AForm::AForm(AForm const &obj)
 void AForm::isGradeValid(int grade) const
 {
 	if (grade < 1)
-			throw GradeTooLowException();
-	if (grade > 150)
 			throw GradeTooHighException();
+	if (grade > 150)
+			throw GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat const &execute) const // Verificar
+{
+	if (execute.getGrade() > _gradeToExecute)
+			throw GradeTooLowException();
 }
 
 char const *AForm::GradeTooHighException::what() const throw()

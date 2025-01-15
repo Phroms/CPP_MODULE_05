@@ -1,0 +1,1 @@
+// RobotomyRequestForm: Requiere grados sign 72 y exec 45. Debe simular ruidos de perforación y luego informar que el target ha sido robotizado exitosamente el 50% de las veces, o fallar la robotización.

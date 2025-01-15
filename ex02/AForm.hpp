@@ -19,6 +19,7 @@ class AForm
 		AForm &operator=(AForm const &obj);
 		~AForm();
 		void isGradeValid(int grade) const;
+		void execute(Bureaucrat const &executor) const;
 
 		std::string getName() const;
 		int getGradeToSign() const;
