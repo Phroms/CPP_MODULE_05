@@ -6,6 +6,7 @@
 # include <iostream>
 # include <string>
 # include <cctype>
+# include <fstream>
 # include <stdexcept>
 # include <filesystem>
 # include <exception>// es para el throw
@@ -19,6 +20,9 @@
 # define NONE "\033[0m"
 
 class AForm;
+class ShrubberyCreationForm;
+class RobotomyRequestForm;
+class PresidentialPardonForm;
 
 class Bureaucrat
 {

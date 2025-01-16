@@ -1,5 +1,4 @@
 # include "Bureaucrat.hpp"
-#include <filesystem>
 
 Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
@@ -106,7 +105,7 @@ void Bureaucrat::executeGrade()
 
 Bureaucrat::~Bureaucrat() {}
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{

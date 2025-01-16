@@ -102,13 +102,13 @@ int main()
 	// Pruebas para la clase Form
 	try
 	{
-		Form f1("Formulario 1", 49, 50);  // Nombre del formulario, grado requerido para firmar, grado requerido para ejecutar
+		AForm f1("Formulario 1", 49, 50);  // Nombre del formulario, grado requerido para firmar, grado requerido para ejecutar
 		//std::cout << f1 << std::endl;
 
 		b1.signForm(f1); // Alice deberia poder firmar
 		std::cout << f1 << std::endl;
 
-		Form f2("Formulario 2", 49, 50);
+		AForm f2("Formulario 2", 49, 50);
 		b3.signForm(f2); // Charlie no deberia poder firmar
 		std::cout << f2 << std::endl;
 	}

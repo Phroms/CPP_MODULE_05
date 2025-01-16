@@ -1,8 +1,7 @@
 # include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExec)
-		: _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExec, std::string target)
+		: _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec), _target(target)
 {
 	if (_gradeToSign < 1 || _gradeToExecute < 1)
 			throw GradeTooHighException();
@@ -30,10 +29,13 @@ void AForm::isGradeValid(int grade) const
 			throw GradeTooLowException();
 }
 
-void AForm::execute(Bureaucrat const &execute) const // Verificar
+void AForm::execute(Bureaucrat const &execute) const
 {
+	if (!_signed)
+			throw FormNotSignedException();
 	if (execute.getGrade() > _gradeToExecute)
 			throw GradeTooLowException();
+	executeAction();
 }
 
 char const *AForm::GradeTooHighException::what() const throw()
@@ -44,6 +46,11 @@ char const *AForm::GradeTooHighException::what() const throw()
 char const *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low!";
+}
+
+char const *AForm::FormNotSignedException::what() const throw()
+{
+	return "Unsigned Form";
 }
 
 std::string AForm::getName() const
@@ -64,6 +71,11 @@ int AForm::getGradeToExecute() const
 bool AForm::isSigned() const
 {
 	return _signed;
+}
+
+std::string AForm::getTarget() const
+{
+	return _target;
 }
 
 AForm::~AForm(){}
