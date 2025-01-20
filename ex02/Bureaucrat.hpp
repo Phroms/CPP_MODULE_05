@@ -1,14 +1,8 @@
 # pragma once
 # include "AForm.hpp"
-# include "PresidentialPardonForms.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "ShrubberyCreationForm.hpp"
 # include <iostream>
 # include <string>
 # include <cctype>
-# include <fstream>
-# include <stdexcept>
-# include <filesystem>
 # include <exception>// es para el throw
 # include <cstdlib>
 

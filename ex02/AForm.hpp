@@ -1,7 +1,7 @@
 # pragma once
 # include "Bureaucrat.hpp"
-# include <exception>
 # include <iostream>
+# include <exception>
 # include <string>
 
 class Bureaucrat;
