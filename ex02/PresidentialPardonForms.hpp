@@ -1,8 +1,6 @@
 # pragma once
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
-#include <chrono>
-# include <iostream>
 # include <string>
 
 class PresidentialPardonForm : public AForm
@@ -16,5 +14,5 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm &operator=(PresidentialPardonForm const &obj);
 		~PresidentialPardonForm();
 	protected:
-		void execute(Bureaucrat const &executor) const;
+		void executeAction() const; // Implementacion de la funcion virtual pura
 };

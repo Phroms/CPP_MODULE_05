@@ -1,7 +1,6 @@
 # pragma once
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
-# include <iostream>
 # include <cstdlib> // Para rand() y srand()
 # include <ctime> // Para time()
 

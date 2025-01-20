@@ -1,4 +1,6 @@
 # include "Bureaucrat.hpp"
+# include "AForm.hpp"
+#include <exception>
 
 Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
@@ -104,6 +106,19 @@ void Bureaucrat::executeGrade()
 }
 
 Bureaucrat::~Bureaucrat() {}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << "Bureaucrat " << _name << " execute form: " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Execute failed: " << 	e.what() << std::endl;
+	}
+}
 
 void Bureaucrat::signForm(AForm &form)
 {

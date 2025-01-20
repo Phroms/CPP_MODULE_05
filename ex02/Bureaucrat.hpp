@@ -21,8 +21,8 @@ class PresidentialPardonForm;
 class Bureaucrat
 {
 	private:
-		std::string const _name;
-		int _grade;
+		std::string const	_name;
+		int					_grade;
 	public:
 		Bureaucrat();
 		~Bureaucrat();
@@ -34,6 +34,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void executeGrade();
+		void executeForm(AForm const &form);
 		void signForm(AForm &form);
 
 		// Los metodos what es un metodo virtual que se hereda de la clase exception

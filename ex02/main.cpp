@@ -2,6 +2,7 @@
 # include "Bureaucrat.hpp"
 # include "PresidentialPardonForms.hpp"
 # include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 int main()
 {
@@ -113,21 +114,21 @@ int main()
 
 		b1.signForm(ppf); // Alice deberia poder firmar
 		std::cout << ppf << std::endl;
-		b3.executeGrade(ppf); // Charlie deberia poder ejecutar
+		b3.executeForm(ppf); // Charlie deberia poder ejecutar
 							  
 		std::cout << "\n--- Testing RobotomyRequestForm ---\n";
 		std::cout << rrf << std::endl;
 
 		b2.signForm(rrf); // Bob deberia poder firmar
 		std::cout << rrf << std::endl;
-		b3.executeGrade(rrf); // Charlie deberia poder ejecutar
+		b3.executeForm(rrf); // Charlie deberia poder ejecutar
 					
 		std::cout << "\n--- Testing ShrubberyCreationForm ---\n";
 		std::cout << scf << std::endl;
 
 		b4.signForm(scf); // Pedro no deberia poder firmar
 		std::cout << scf << std::endl;
-		b3.executeGrade(scf); // Charlie deberia poder ejecutar
+		b3.executeForm(scf); // Charlie deberia poder ejecutar
 	}
 	
 	catch (std::exception &e)

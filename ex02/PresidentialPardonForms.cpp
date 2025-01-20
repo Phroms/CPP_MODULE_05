@@ -5,10 +5,7 @@ PresidentialPardonForm::PresidentialPardonForm()
 						: AForm("PresidentialPardonForm", 25, 5, "") {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target)
-						: AForm("PresidentialPardonForm", 25, 5, target) 
-{
-	srand(time(NULL));
-}
+						: AForm("PresidentialPardonForm", 25, 5, target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &obj)
 						: AForm(obj) {}
@@ -22,8 +19,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+void PresidentialPardonForm::executeAction() const
 {
-	AForm::execute(executor);
 	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
