@@ -1,4 +1,5 @@
 # include "ShrubberyCreationForm.hpp"
+# include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() 
 						: AForm("ShrubberyCreationForm", 145, 137, "") {}

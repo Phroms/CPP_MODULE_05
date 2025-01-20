@@ -4,8 +4,6 @@
 # include <exception>
 # include <string>
 
-class Bureaucrat;
-
 class AForm
 {
 	private:

@@ -1,5 +1,7 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
+# include "PresidentialPardonForms.hpp"
+# include "RobotomyRequestForm.hpp"
 
 int main()
 {
@@ -102,15 +104,30 @@ int main()
 	// Pruebas para la clase Form
 	try
 	{
-		AForm f1("Formulario 1", 49, 50);  // Nombre del formulario, grado requerido para firmar, grado requerido para ejecutar
-		//std::cout << f1 << std::endl;
+		PresidentialPardonForm ppf("The President");
+		RobotomyRequestForm rrf("The Robot");
+		ShrubberyCreationForm scf("The Tree");
 
-		b1.signForm(f1); // Alice deberia poder firmar
-		std::cout << f1 << std::endl;
+		std::cout << "\n--- Testing PresidentialPardonForm ---\n";
+		std::cout << ppf << std::endl;
 
-		AForm f2("Formulario 2", 49, 50);
-		b3.signForm(f2); // Charlie no deberia poder firmar
-		std::cout << f2 << std::endl;
+		b1.signForm(ppf); // Alice deberia poder firmar
+		std::cout << ppf << std::endl;
+		b3.executeGrade(ppf); // Charlie deberia poder ejecutar
+							  
+		std::cout << "\n--- Testing RobotomyRequestForm ---\n";
+		std::cout << rrf << std::endl;
+
+		b2.signForm(rrf); // Bob deberia poder firmar
+		std::cout << rrf << std::endl;
+		b3.executeGrade(rrf); // Charlie deberia poder ejecutar
+					
+		std::cout << "\n--- Testing ShrubberyCreationForm ---\n";
+		std::cout << scf << std::endl;
+
+		b4.signForm(scf); // Pedro no deberia poder firmar
+		std::cout << scf << std::endl;
+		b3.executeGrade(scf); // Charlie deberia poder ejecutar
 	}
 	
 	catch (std::exception &e)
@@ -124,52 +141,3 @@ int main()
 	}
 	return 0;
 }
-
-
-/* EJEMPLOS 
-
-Ejemplo 1:
-
-si yo tengo un burocrata Alice de grado 50 y un grado para firmar de 60 y un grado para ejecutar es de 100
-
-entonces ese burocrata podra firmar sin problema
-
-Ejemplo 2:
-
-si yo tengo un burocrata de grado 10 y un grado para firmar 5 y un grado para ejecutar 20
-
-entonces ese burocrata no podra firmar
-
-Ejemplo 3:
-
-si yo tengo un burocrata de grado 70 y un grado para firmar de 80 y un grado para ejecutar de 10
-
-entonces ese burocrata no podra firmar, mas no puede ejecutarlo
-
-Ejemplo 1:
-
-    Burócrata: Alice, grado 50
-    Grado para firmar: 60
-    Grado para ejecutar: 100
-
-Alice podrá firmar sin problema porque su grado (50) es menor que el requerido para firmar (60).
-
-Ejemplo 2:
-
-    Burócrata: grado 10
-    Grado para firmar: 5
-    Grado para ejecutar: 20
-
-El burócrata no podrá firmar porque su grado (10) es mayor que el requerido para firmar (5).
-
-Ejemplo 3:
-
-    Burócrata: grado 70
-    Grado para firmar: 80
-    Grado para ejecutar: 10
-
-El burócrata podrá firmar porque su grado (70) es menor que el requerido para firmar (80),
-pero no podrá ejecutar el formulario porque su grado (70) es mayor que el requerido 
-para ejecutar (10).
-
-*/

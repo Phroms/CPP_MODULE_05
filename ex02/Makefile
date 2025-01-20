@@ -6,7 +6,7 @@
 #    By: agrimald <agrimald@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 17:51:03 by agrimald          #+#    #+#              #
-#    Updated: 2025/01/16 20:53:10 by agrimald         ###   ########.fr        #
+#    Updated: 2025/01/20 16:01:12 by agrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ YELLOW = \033[93m
 END_COLOR = \033[0m
 
 SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp
+		RobotomyRequestForm.cpp PresidentialPardonForms.cpp
 
 INC = AForm.hpp Bureaucrat.hpp SHrubberyCreationForm.hpp \
-	  	RobotomyRequestForm.hpp
+	  	RobotomyRequestForm.hpp PresidentialPardonForms.hpp
 
 OBJECTS = $(SRC:.cpp=.o)
 
